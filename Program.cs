@@ -48,7 +48,7 @@ namespace Exercice1_2
         {
             dim = dimension;
             String a;
-            for (int i = 0; i < dim; i++)
+            for (int i = 0; i < dim, i++)
             {
                 Console.WriteLine("case number " + i++);
                  a = Console.ReadLine();
@@ -58,13 +58,14 @@ namespace Exercice1_2
         public void ajouter(int nbr_ajout)//ajouter un nombre à un tableau déjà trié les paramètres sont notre tableeau + la valeur qui va etre ajoutée
         {
             int i = 0;//index 
-            if ((tab[i] <= tab[i+1])&&(tab[i+1] <= tab[i+2]))//afin de savoir l'ordre de triement 
+            int j;
+            if ((tab[i] <= tab[i+1])&&(tab[i+1] < tab[i+2]))//afin de savoir l'ordre de triement 
             {
                 while (i<tab.length())//puisque l'ordre est croissant donc il faut que l'index soit inférieure à la longueur
                 {
-                    if (nbr_ajout <= tab[i])//check if nbre à ajouter est plus petit ou egal à la valeur sockée dans le tableau si oui:
+                    if (nbr_ajout < tab[i])//check if nbre à ajouter est plus petit ou egal à la valeur sockée dans le tableau si oui:
                     {
-                        for(int j = tab.length(),j >= i ;j--)//un autre index qui va nous permettre à réserver une case pour le nouveau nombre donc it's important to move the other cases     
+                        for( j = tab.length(),j > i ,j--)//un autre index qui va nous permettre à réserver une case pour le nouveau nombre donc it's important to move the other cases     
                         {
                              tab[j+1] = tab[j];//moving
                         }
@@ -75,12 +76,12 @@ namespace Exercice1_2
                 }
             }
             else //si le tableau est trié décroissant meme chose on va faire justement la condition d'if va etre changé 
-            {
+            {               
                 while (i<tab.length())
                 {
-                    if (nbr_ajout >= tab[i])//cette fois le nbre ajouté doit etre > que notre case 
+                    if (nbr_ajout > tab[i])//cette fois le nbre ajouté doit etre > que notre case 
                     {
-                        for(int j = tab.length(),j >= i ;j--)
+                        for(j = tab.length(),j > i ,j--)
                         {
                              tab[j+1] = tab[j];
                         }
