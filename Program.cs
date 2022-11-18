@@ -11,6 +11,8 @@ namespace Exercice1_2
             Console.WriteLine("Ce nombre est premier");
            else
                 Console.WriteLine("Ce nombre n'est pas premier");
+            Tri tab1 = new Tri(4);
+            tab1.ajouter(3);
 
         }
     }
@@ -40,7 +42,7 @@ namespace Exercice1_2
     }
     public class Tri
     {
-        private int[] array;
+        private int[] tab;
         private int dim;
         public Tri( int dimension)
         {
@@ -50,10 +52,10 @@ namespace Exercice1_2
             {
                 Console.WriteLine("case number " + i++);
                  a = Console.ReadLine();
-                int.TryParse(a, out array[i]);
+                int.TryParse(a, out tab[i]);
             }
         }
-        public void ajouter(int[] tab,int nbr_ajout)//ajouter un nombre à un tableau déjà trié les paramètres sont notre tableeau + la valeur qui va etre ajoutée
+        public void ajouter(int nbr_ajout)//ajouter un nombre à un tableau déjà trié les paramètres sont notre tableeau + la valeur qui va etre ajoutée
         {
             int i = 0;//index 
             if ((tab[i] <= tab[i+1])&&(tab[i+1] <= tab[i+2]))//afin de savoir l'ordre de triement 
