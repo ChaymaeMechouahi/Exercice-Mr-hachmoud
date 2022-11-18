@@ -53,14 +53,30 @@ namespace Exercice1_2
                 int.TryParse(a, out array[i]);
             }
         }
-        public void ajouter(int[] tab,int nbr_ajout)//ajouter un nombre à un tableau déjà trié
+        public void ajouter(int[] tab,int nbr_ajout)//ajouter un nombre à un tableau déjà trié les paramètres sont notre tableeau + la valeur qui va etre ajoutée
         {
-            int i = 0;
-            if ((tab[i] <= tab[i+1])&&(tab[i+1] <= tab[i+2]))
+            int i = 0;//index 
+            if ((tab[i] <= tab[i+1])&&(tab[i+1] <= tab[i+2]))//afin de savoir l'ordre de triement 
+            {
+                while (i<tab.length())//puisque l'ordre est croissant donc il faut que l'index soit inférieure à la longueur
+                {
+                    if (nbr_ajout <= tab[i])//check if nbre à ajouter est plus petit ou egal à la valeur sockée dans le tableau si oui:
+                    {
+                        for(int j = tab.length(),j >= i ;j--)//un autre index qui va nous permettre à réserver une case pour le nouveau nombre donc it's important to move the other cases     
+                        {
+                             tab[j+1] = tab[j];//moving
+                        }
+                        tab[i] = nbr_ajout;//affecter le nombre à son emplacement   
+                        exit;//en cas d'ajout avec succées pas besoin de continuer dans le parcours du tableau  
+                    }
+                    i++;//incrémentation jusqu'il rentre dans la condition if 
+                }
+            }
+            else //si le tableau est trié décroissant meme chose on va faire justement la condition d'if va etre changé 
             {
                 while (i<tab.length())
                 {
-                    if (nbr_ajout <= tab[i])
+                    if (nbr_ajout >= tab[i])//cette fois le nbre ajouté doit etre > que notre case 
                     {
                         for(int j = tab.length(),j >= i ;j--)
                         {
@@ -70,21 +86,6 @@ namespace Exercice1_2
                         exit;
                     }
                     i++;
-                }
-            }
-            else
-            {
-                i=tab.length();
-                while (i > 0)
-                {
-                    if (nbr_ajout <= tab[i])
-                    {
-                        for(int j = tab.length(),j >= i ;j--)
-                        {
-                             tab[j+1] = tab[j];
-                        }
-                        tab[i] = nbr_ajout;
-                    }
                 }
             }
         }
