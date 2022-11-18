@@ -53,14 +53,38 @@ namespace Exercice1_2
                 int.TryParse(a, out array[i]);
             }
         }
-        public void ajouter(int[] tab, int dimension,int nbr_ajout)
+        public void ajouter(int[] tab,int nbr_ajout)//ajouter un nombre à un tableau déjà trié
         {
             int i = 0;
-            if ((tab[i] < tab[i+1])&&(tab[i+1] < tab[i+2]))
+            if ((tab[i] <= tab[i+1])&&(tab[i+1] <= tab[i+2]))
             {
-                while ((i<dimension)&&(dimension>tab.Length))
+                while (i<tab.length())
                 {
-
+                    if (nbr_ajout <= tab[i])
+                    {
+                        for(int j = tab.length(),j >= i ;j--)
+                        {
+                             tab[j+1] = tab[j];
+                        }
+                        tab[i] = nbr_ajout;
+                        exit;
+                    }
+                    i++;
+                }
+            }
+            else
+            {
+                i=tab.length();
+                while (i > 0)
+                {
+                    if (nbr_ajout <= tab[i])
+                    {
+                        for(int j = tab.length(),j >= i ;j--)
+                        {
+                             tab[j+1] = tab[j];
+                        }
+                        tab[i] = nbr_ajout;
+                    }
                 }
             }
         }
