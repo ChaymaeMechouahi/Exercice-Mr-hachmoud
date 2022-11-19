@@ -11,7 +11,7 @@ namespace Exercice1_2
             Console.WriteLine("Ce nombre est premier");
            else
                 Console.WriteLine("Ce nombre n'est pas premier");
-            Tri tab1 = new Tri(4);
+            Tri tab1 = new Tri();
             tab1.ajouter(3);
 
         }
@@ -42,13 +42,12 @@ namespace Exercice1_2
     }
     public class Tri
     {
-        private int[] tab;
-        private int dim;
-        public Tri( int dimension)
+         private int[] tab = {0,1,2,4};     
+        public Tri()
         {
-            dim = dimension;
+            int i;
             String a;
-            for (int i = 0; i < dim, i++)
+            for (i = 0; i < tab.Length; i++)
             {
                 Console.WriteLine("case number " + i++);
                  a = Console.ReadLine();
@@ -61,32 +60,32 @@ namespace Exercice1_2
             int j;
             if ((tab[i] <= tab[i+1])&&(tab[i+1] < tab[i+2]))//afin de savoir l'ordre de triement 
             {
-                while (i<tab.length())//puisque l'ordre est croissant donc il faut que l'index soit inférieure à la longueur
+                while (i<tab.Length)//puisque l'ordre est croissant donc il faut que l'index soit inférieure à la longueur
                 {
                     if (nbr_ajout < tab[i])//check if nbre à ajouter est plus petit ou egal à la valeur sockée dans le tableau si oui:
                     {
-                        for( j = tab.length(),j > i ,j--)//un autre index qui va nous permettre à réserver une case pour le nouveau nombre donc it's important to move the other cases     
+                        for( j = tab.Length;j > i ;j--)//un autre index qui va nous permettre à réserver une case pour le nouveau nombre donc it's important to move the other cases     
                         {
                              tab[j+1] = tab[j];//moving
                         }
                         tab[i] = nbr_ajout;//affecter le nombre à son emplacement   
-                        exit;//en cas d'ajout avec succées pas besoin de continuer dans le parcours du tableau  
+         
                     }
                     i++;//incrémentation jusqu'il rentre dans la condition if 
                 }
             }
             else //si le tableau est trié décroissant meme chose on va faire justement la condition d'if va etre changé 
             {               
-                while (i<tab.length())
+                while (i<tab.Length)
                 {
                     if (nbr_ajout > tab[i])//cette fois le nbre ajouté doit etre > que notre case 
                     {
-                        for(j = tab.length(),j > i ,j--)
+                        for(j = tab.Length;j > i ;j--)
                         {
                              tab[j+1] = tab[j];
                         }
                         tab[i] = nbr_ajout;
-                        exit;
+                        
                     }
                     i++;
                 }
