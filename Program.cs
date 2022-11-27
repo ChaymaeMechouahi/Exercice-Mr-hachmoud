@@ -42,7 +42,7 @@ namespace Exercice1_2
     }
     public class Tri
     {
-         private int[] tab = {0,1,2,4};     
+        private int[] tab = new int[] {};   
         public Tri()
         {
             int i;
